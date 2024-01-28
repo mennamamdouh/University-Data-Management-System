@@ -56,8 +56,8 @@ CREATE TABLE Lecturers(
     LecturerID NUMBER(5) NOT NULL,
     FullName VARCHAR2(30),
     Salary NUMBER(6),
-    ContactEmail VARCHAR2(50),
-    OfficeRoom VARCHAR2(5),
+    ContactEmail VARCHAR2(50) UNIQUE,
+    OfficeRoom VARCHAR2(5) UNIQUE,
     DepartmentID NUMBER(2) NOT NULL,
 
     CONSTRAINT lecturers_pk PRIMARY KEY(LecturerID),
