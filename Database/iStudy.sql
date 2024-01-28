@@ -129,7 +129,7 @@ CREATE TABLE Enrollments(
     CONSTRAINT enrollments_course_fk FOREIGN KEY(CourseID) REFERENCES Courses(CourseID),
     CONSTRAINT enrollments_grade_fk FOREIGN KEY(Grade) REFERENCES Grades(Grade),
     CONSTRAINT check_term CHECK(Term IN ('Spring', 'Autumn', 'Summer')),
-    CONSTRAINT check_state CHECK(State IN ('In progress', 'Passed'))
+    CONSTRAINT check_state CHECK(State IN ('In progress', 'Passed', 'Failed'))
 );
 
 CREATE SEQUENCE enrollments_sequence;
