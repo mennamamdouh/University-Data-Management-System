@@ -155,3 +155,20 @@ INSERT INTO Grades
     VALUES('F', 0);
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Enrollments data */
+
+INSERT INTO Enrollments(StudentID, CourseID, Term, Year, State, Grade)
+    VALUES(1, 1, 'Summer', TO_DATE('2023', 'YYYY'), 'Passed', 'B');
+INSERT INTO Enrollments(StudentID, CourseID, Term, Year, State, Grade)
+    VALUES(1, 3, 'Autumn', TO_DATE('2023', 'YYYY'), 'Passed', 'A');
+INSERT INTO Enrollments(StudentID, CourseID, Term, Year, State, Grade)
+    VALUES(1, 5, 'Autumn', TO_DATE('2023', 'YYYY'), 'Passed', 'B+');
+INSERT INTO Enrollments(StudentID, CourseID, Term, Year, State, Grade)
+    VALUES(1, 6, 'Autumn', TO_DATE('2023', 'YYYY'), 'Passed', 'B+');
+INSERT INTO Enrollments(StudentID, CourseID, Term, Year, State)
+    VALUES(1, 9, 'Autumn', TO_DATE('2023', 'YYYY'), 'In progress');
+INSERT INTO Enrollments(StudentID, CourseID, Term, Year, State, Grade)
+    VALUES(1, 2, 'Spring', TO_DATE('2024', 'YYYY'), 'Passed', 'A-');
+
+------------------------------------------------------------------------------------------------------------------------------------------------
