@@ -31,6 +31,7 @@ CREATE TABLE Students(
     PersonalPhoto VARCHAR2(150),
     ContactNumber VARCHAR2(15),
     CGPA NUMBER(3, 2),
+    TotalCreditHours NUMBER(3),
     DepartmentID NUMBER(2) NOT NULL,
 
     CONSTRAINT students_pk PRIMARY KEY(StudentID),
@@ -122,7 +123,7 @@ CREATE TABLE Enrollments(
     Term VARCHAR2(10),
     Year DATE,
     State VARCHAR2(20),
-    Grade VARCHAR2(2) NOT NULL,
+    Grade VARCHAR2(2),
 
     CONSTRAINT enrollments_pk PRIMARY KEY(EnrollmentID),
     CONSTRAINT enrollments_student_fk FOREIGN KEY(StudentID) REFERENCES Students(StudentID),
