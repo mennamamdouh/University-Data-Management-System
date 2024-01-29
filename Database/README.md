@@ -10,8 +10,8 @@ Our database stores information about the university's students, departments, gr
 
 - __Students__
 
-  | <u>Student ID</u>  | Full Name | Email | Password | Gender | DoB | Personal Photo | Contact Number | CGPA |
-  | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+  | <u>Student ID</u>  | Full Name | Email | Password | Gender | DoB | Personal Photo | Contact Number | CGPA | Total Credit Hours |
+  | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 - __Courses__
 
@@ -28,7 +28,7 @@ Our database stores information about the university's students, departments, gr
   | <u>Department ID</u> | Department Name |
   | --- | --- |
 
-- __Courses__
+- __Lecturers__
 
   | <u>Lecturer ID</u> | Full Name | Salary | Contact Email | Office Room |
   | --- | --- | --- | --- | --- |
@@ -78,8 +78,8 @@ Our database stores information about the university's students, departments, gr
 
 - __Students__ (`enrolls`)
     
-    | <u>Student ID</u> | Full Name | Email | Password | Gender | DoB | Personal Photo | Contact Number | CGPA | *Department ID [FK]* |
-    | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+    | <u>Student ID</u> | Full Name | Email | Password | Gender | DoB | Personal Photo | Contact Number | CGPA | Total Credit Hours | *Department ID [FK]* |
+    | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 - __Lecturers__ (`works at`)
     
