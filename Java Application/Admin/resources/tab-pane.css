@@ -1,0 +1,43 @@
+/* Admin pane */
+
+.tab-pane {
+    -fx-background-color: #581845; /* Set background color */
+}
+
+.horizontal-tab-pane *.tab {
+    /* Determines the tab height */
+    -fx-pref-width: 97px;
+    -fx-alignment: center;
+}
+
+/* Style for the tabs */
+.tab {
+    -fx-background-color:   #dddddd; /* Set tab background color */
+    -fx-text-base-color: #581845; /* Set tab text color */
+    -fx-font-size: 26;
+    -fx-font-weight: bold; /* Set tab text bold */
+    -fx-font-family: "Berlin Sans FB Demi";
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab:hover {
+    -fx-background-color: #bababa; /* Set background color on hover */
+}
+
+/* Style for the selected tab */
+.tab:selected {
+    -fx-background-color: #A6A6A6; /* Set selected tab background color */
+}
+
+/* Style for the content area */
+.tab-content-area {
+    -fx-background-color: #ffffff; /* Set content area background color */
+}
+
+/* Style for the cursor */
+.cursor {
+    -fx-cursor: hand; /* Set cursor to hand (pointer) */
+}
