@@ -6,7 +6,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CoursesController">
    <children>
-      <TableView fx:id="coursesTable" layoutX="3.0" layoutY="3.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../resources/table-view.css">
+      <TableView fx:id="coursesTable" prefHeight="600.0" prefWidth="800.0" stylesheets="@../resources/table-view.css">
          <columns>
             <TableColumn fx:id="courseColumn" prefWidth="178.0" text="Course" />
             <TableColumn fx:id="cHoursColumn" prefWidth="106.0" text="Credit Hours" />
