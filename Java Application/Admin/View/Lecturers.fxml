@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LecturersController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LecturersController">
    <children>
-      <Label layoutX="273.0" layoutY="264.0" text="Lecturers Pane">
-         <font>
-            <Font name="Berlin Sans FB" size="41.0" />
-         </font>
-      </Label>
+      <TableView fx:id="lecturersTable" prefHeight="600.0" prefWidth="800.0" stylesheets="@../resources/table-view.css">
+         <columns>
+            <TableColumn fx:id="lectColumn" prefWidth="140.0" text="Lecturer" />
+            <TableColumn fx:id="salaryColumn" prefWidth="79.0" text="Salary" />
+            <TableColumn fx:id="emailColumn" prefWidth="135.0" text="Email" />
+            <TableColumn fx:id="officeRoomColumn" prefWidth="111.0" text="Office Room" />
+            <TableColumn fx:id="deptColumn" prefWidth="180.0" text="Department" />
+            <TableColumn fx:id="numOfCourses" prefWidth="154.0" text="Number of Courses" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
