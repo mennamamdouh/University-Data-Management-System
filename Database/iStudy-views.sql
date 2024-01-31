@@ -6,13 +6,17 @@ CREATE OR REPLACE VIEW studentds_info AS
         ON S.DepartmentID = D.DepartmentID
     ORDER BY CGPA, S.FullName;
 
--- View to show the number of students enrolled on at least once in each course
-CREATE OR REPLACE VIEW students_in_courses AS
-    SELECT C.Title, COUNT(DISTINCT E.StudentID) AS numberOfStudents
-    FROM Enrollments E
-    INNER JOIN Courses C
-        ON E.CourseID = C.CourseID
-    GROUP BY C.Title;
+-- View to show information about courses, their departments, and number of students enrolled in each course
+CREATE OR REPLACE VIEW courses_info AS
+    SELECT C.Title, C.CreditHours, D.DepartmentName, L.FullName, COUNT(DISTINCT E.StudentID) AS numberOfStudents
+    FROM Courses C
+    INNER JOIN Departments D
+        ON C.DepartmentID = D.DepartmentID
+    INNER JOIN Lecturers L
+        ON C.LecturerID = L.LecturerID
+    INNER JOIN Enrollments E
+        ON C.CourseID = E.CourseID
+    GROUP BY C.Title, C.CreditHours, D.DepartmentName, L.FullName;
 
 -- View to show the number of students enrolled in each department
 CREATE OR REPLACE VIEW students_in_departments AS
