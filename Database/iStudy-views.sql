@@ -18,6 +18,17 @@ CREATE OR REPLACE VIEW courses_info AS
         ON C.CourseID = E.CourseID
     GROUP BY C.Title, C.CreditHours, D.DepartmentName, L.FullName;
 
+-- View to show information about lecturers, their departments, and number of courses they teach
+CREATE OR REPLACE VIEW lects_info AS
+    SELECT L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName, COUNT(C.CourseID) AS numberOfCourses
+    FROM Lecturers L
+    INNER JOIN Departments D
+        ON L.DepartmentID = D.DepartmentID
+    INNER JOIN Courses C
+        ON L.LecturerID = C.LecturerID
+    GROUP BY L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName
+    ORDER BY L.FullName;
+
 -- View to show the number of students enrolled in each department
 CREATE OR REPLACE VIEW students_in_departments AS
     SELECT D.DepartmentName, COUNT(S.StudentID) AS numberOfStudents
