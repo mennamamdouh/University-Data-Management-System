@@ -33,7 +33,7 @@ public class Student {
         this.totalCreditHours = totalCreditHours;
         this.deptId = deptId;
     }
-
+    
     public int getStudentId() {
         return studentId;
     }
