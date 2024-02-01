@@ -5,6 +5,8 @@
  */
 package DAO;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,6 +17,7 @@ import java.sql.SQLException;
  */
 public class DBConnection {
     private volatile static Connection dbconnection;
+    static String connection_string;
     static String username;
     static String password;
     
@@ -23,10 +26,13 @@ public class DBConnection {
     }
     
     public static Connection getConnection() throws SQLException{
-        if(dbconnection == null)
-            username = System.getenv("DB_USERNAME");
-            password = System.getenv("DB_PASSWORD");
-            dbconnection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", username, password);
+        if(dbconnection == null){
+            Dotenv dotenv = Dotenv.configure().directory("/DAO/.env").load();
+            connection_string = dotenv.get("CONNECTION_STRING");
+            username = dotenv.get("DB_USERNAME");
+            password = dotenv.get("DB_PASSWORD");
+            dbconnection = DriverManager.getConnection(connection_string, username, password);
+        }
         return dbconnection;
     }
 }
