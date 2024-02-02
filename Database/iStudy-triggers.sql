@@ -40,3 +40,14 @@ BEGIN
         TotalCreditHours = student_credit_hours_after
     WHERE StudentID = :NEW.StudentID;
 END;
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* To delete a student */
+
+CREATE OR REPLACE TRIGGER delete_student
+    BEFORE DELETE ON Students
+    FOR EACH ROW
+BEGIN
+    DELETE FROM Enrollments WHERE StudentID = :OLD.StudentID;
+END;
