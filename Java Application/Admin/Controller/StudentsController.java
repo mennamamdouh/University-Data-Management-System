@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.DBConnection;
+import DAO.DBDeletion;
 import DTO.StudentDept;
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +31,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -194,6 +196,43 @@ public class StudentsController implements Initializable {
                         alert.setContentText("Please click on a student to change his department.");
                         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
                         stage.setTitle("Update Student");
+                        stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
+                        alert.showAndWait();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } 
+        });
+        
+        deleteStudentButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if(selected){
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setContentText("You're about to delete student " + selectedStudent.getFullName() + " from the system, hence his all enrollments will be deleted as well.");
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.setTitle("Delete Student");
+                        stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
+                        alert.showAndWait().ifPresent(response -> {
+                            if (response == ButtonType.OK){
+                                try {
+                                    // Perform the delete action for the student
+                                    DBDeletion.deleteStudent(selectedStudent);
+                                    // Refresh the students list
+                                    getStudents();
+                                    studentsTable.setItems(students);
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(StudentsController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        });
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setContentText("Please click on a student to delete.");
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.setTitle("Delete Student");
                         stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
                         alert.showAndWait();
                     }
