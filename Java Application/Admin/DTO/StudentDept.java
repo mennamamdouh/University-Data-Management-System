@@ -6,6 +6,7 @@
 package DTO;
 
 public class StudentDept {
+    private int studentId;
     private String fullName;
     private String personalPhoto;
     private double cgpa;
@@ -13,17 +14,31 @@ public class StudentDept {
     private String deptName;
     private int numberOfStudents;
 
-    public StudentDept(String fullName, String personalPhoto, double cgpa, int totalCreditHours, String deptName) {
-        this.fullName = fullName;
+    public StudentDept(int studentId, String personalPhoto, String fullName,String deptName, double cgpa, int totalCreditHours) {
+        this.studentId = studentId;
         this.personalPhoto = personalPhoto;
+        this.fullName = fullName;
+        this.deptName = deptName;
         this.cgpa = cgpa;
         this.totalCreditHours = totalCreditHours;
+    }
+
+    public StudentDept(int studentId, String deptName) {
+        this.studentId = studentId;
         this.deptName = deptName;
     }
 
     public StudentDept(String deptName, int numberOfStudents) {
         this.deptName = deptName;
         this.numberOfStudents = numberOfStudents;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public String getFullName() {
