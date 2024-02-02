@@ -1,6 +1,6 @@
 -- View to show information about students
 CREATE OR REPLACE VIEW studentds_info AS
-    SELECT S.PersonalPhoto, S.FullName, D.DepartmentName, S.CGPA, S.TotalCreditHours
+    SELECT S.StudentID, S.PersonalPhoto, S.FullName, D.DepartmentName, S.CGPA, S.TotalCreditHours
     FROM Students S
     INNER JOIN Departments D
         ON S.DepartmentID = D.DepartmentID
