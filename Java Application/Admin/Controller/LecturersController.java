@@ -5,12 +5,9 @@
  */
 package Controller;
 
-import static Controller.DepartmentsController.depts;
-import static Controller.DepartmentsController.detDepts;
 import DAO.DBConnection;
 import DAO.DBDeletion;
 import DTO.LecturerDept;
-import DTO.StudentDept;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,7 +33,6 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -141,7 +137,7 @@ public class LecturersController implements Initializable {
             } 
         });
         
-        // Make the table's rows clickable to be able to pick a lecturer to be removed
+        // Make the table's rows clickable to be able to pick a lecturer to be removed or updated
         lecturersTable.setRowFactory(new Callback<TableView<LecturerDept>, TableRow<LecturerDept>>() {
             @Override
             public TableRow<LecturerDept> call(TableView<LecturerDept> tv) {
@@ -152,11 +148,43 @@ public class LecturersController implements Initializable {
                         if (event.getClickCount() == 1 && (!userRow.isEmpty())) {
                             selected = true;
                             selectedLecturer = userRow.getItem();
+                            UpdateLecturerController updateLect = new UpdateLecturerController();
+                            updateLect.processLectSalary(selectedLecturer);
                         }
                     }
                 });
                 return userRow;
             }
+        });
+        
+        updateLecturerButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if(selected){
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/UpdateLecturer.fxml"));
+                        AnchorPane updateStudentScene = loader.load();
+                        Stage blockingWindow = new Stage();
+                        blockingWindow.initModality(Modality.APPLICATION_MODAL);
+                        blockingWindow.getIcons().add(new Image("/resources/logo.png"));
+                        blockingWindow.setTitle("Update Lecturer");
+                        blockingWindow.setScene(new Scene(updateStudentScene));
+                        blockingWindow.showAndWait();
+                        // Refresh the students list
+                        getLecturers();
+                        lecturersTable.setItems(lecturers);
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setContentText("Please click on a lecturer to update his salary.");
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.setTitle("Update Lecturer");
+                        stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
+                        alert.showAndWait();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } 
         });
         
         deleteLecturerButton.setOnAction(new EventHandler<ActionEvent>() {
