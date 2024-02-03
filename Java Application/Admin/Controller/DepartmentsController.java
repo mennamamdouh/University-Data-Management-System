@@ -18,11 +18,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -40,6 +49,12 @@ public class DepartmentsController implements Initializable {
     private TableColumn<StudentDept, String> deptColumn;
     @FXML
     private TableColumn<StudentDept, Integer> numberOfStudents;
+    @FXML
+    private Button addDeptButton;
+    @FXML
+    private Button deleteDeptButton;
+    @FXML
+    private Button updateDeptButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,6 +78,27 @@ public class DepartmentsController implements Initializable {
                 Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        addDeptButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AddDepartment.fxml"));
+                        AnchorPane updateStudentScene = loader.load();
+                        Stage blockingWindow = new Stage();
+                        blockingWindow.initModality(Modality.APPLICATION_MODAL);
+                        blockingWindow.getIcons().add(new Image("/resources/logo.png"));
+                        blockingWindow.setTitle("Add Department");
+                        blockingWindow.setScene(new Scene(updateStudentScene));
+                        blockingWindow.showAndWait();
+                        // Refresh the students list
+                        detDepts();
+                        deptsTable.setItems(depts);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } 
+        });
     }
     
     public static void detDepts() throws SQLException {

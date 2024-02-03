@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import DTO.Department;
 import DTO.Student;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +21,20 @@ public class DBAddition {
         statement.setString(4, newStudent.getPersonalPhoto());
         statement.setString(5, newStudent.getContactNumber());
         statement.setInt(6, newStudent.getDeptId());
+        int result = statement.executeUpdate();
+        if(result == 1) {
+            statement.close();
+            return true;
+        } else {
+            statement.close();
+            return false;
+        }
+    }
+    
+    public static boolean addDept(Department newDept) throws SQLException{
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO Departments(DepartmentName) VALUES(?)");
+        statement.setString(1, newDept.getDeptName());
         int result = statement.executeUpdate();
         if(result == 1) {
             statement.close();
