@@ -5,10 +5,6 @@
  */
 package Controller;
 
-import static Controller.DepartmentsController.depts;
-import static Controller.DepartmentsController.detDepts;
-import static Controller.StudentsController.getStudents;
-import static Controller.StudentsController.students;
 import DAO.DBConnection;
 import DAO.DBDeletion;
 import DTO.CourseDept;
@@ -73,6 +69,8 @@ public class CoursesController implements Initializable {
     private Button deleteCourseButton;
     @FXML
     private Button updateCourseButton;
+    @FXML
+    private Button showStudentsButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -126,6 +124,8 @@ public class CoursesController implements Initializable {
                             selectedCourse = userRow.getItem();
                             UpdateCourseController updateCourse = new UpdateCourseController();
                             updateCourse.processCourseLect(selectedCourse);
+                            EnrolledStudentsController enrolledStudents = new EnrolledStudentsController();
+                            enrolledStudents.passCourseID(selectedCourse);
                         }
                     }
                 });
@@ -214,16 +214,44 @@ public class CoursesController implements Initializable {
             public void handle(ActionEvent event) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AddCourse.fxml"));
-                        AnchorPane updateStudentScene = loader.load();
+                    AnchorPane updateStudentScene = loader.load();
+                    Stage blockingWindow = new Stage();
+                    blockingWindow.initModality(Modality.APPLICATION_MODAL);
+                    blockingWindow.getIcons().add(new Image("/resources/logo.png"));
+                    blockingWindow.setTitle("Add Course");
+                    blockingWindow.setScene(new Scene(updateStudentScene));
+                    blockingWindow.showAndWait();
+                    // Refresh the courses list
+                    getCourses();
+                    coursesTable.setItems(courses);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } 
+        });
+        
+        showStudentsButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if(selected) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/EnrolledStudents.fxml"));
+                        AnchorPane enrolledStudentsScene = loader.load();
                         Stage blockingWindow = new Stage();
                         blockingWindow.initModality(Modality.APPLICATION_MODAL);
-                        blockingWindow.getIcons().add(new Image("/resources/logo.png"));
-                        blockingWindow.setTitle("Add Course");
-                        blockingWindow.setScene(new Scene(updateStudentScene));
+                        blockingWindow.getIcons().add(new Image("/resources/student.png"));
+                        blockingWindow.setTitle(selectedCourse.getTitle());
+                        blockingWindow.setResizable(false);
+                        blockingWindow.setScene(new Scene(enrolledStudentsScene));
                         blockingWindow.showAndWait();
-                        // Refresh the courses list
-                        getCourses();
-                        coursesTable.setItems(courses);
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setContentText("Please click on a course to show its enrolled students.");
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.setTitle("Enrolled Students");
+                        stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
+                        alert.showAndWait();
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

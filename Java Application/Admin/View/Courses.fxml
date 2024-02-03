@@ -19,7 +19,7 @@
             <TableColumn fx:id="numOfStudents" prefWidth="180.0" text="Number of Students" />
          </columns>
       </TableView>
-      <Button fx:id="addCourseButton" layoutX="322.0" layoutY="550.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="46.0" style="-fx-background-color: #ffffff;">
+      <Button fx:id="addCourseButton" layoutX="294.0" layoutY="550.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="46.0" style="-fx-background-color: #ffffff;">
          <graphic>
             <ImageView fx:id="addImage" fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="deleteCourseButton" layoutX="378.0" layoutY="550.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #ffffff;">
+      <Button fx:id="deleteCourseButton" layoutX="350.0" layoutY="550.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #ffffff;">
          <graphic>
             <ImageView fx:id="deleteImage" fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,11 +43,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="updateCourseButton" layoutX="433.0" layoutY="550.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #ffffff;">
+      <Button fx:id="updateCourseButton" layoutX="405.0" layoutY="550.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #ffffff;">
          <graphic>
             <ImageView fx:id="updateImage" fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/update.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="showStudentsButton" layoutX="460.0" layoutY="550.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #ffffff;">
+         <graphic>
+            <ImageView fx:id="sudentImage" fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/student.png" />
                </image>
             </ImageView>
          </graphic>

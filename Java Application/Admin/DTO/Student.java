@@ -42,6 +42,12 @@ public class Student {
         this.contactNumber = contactNumber;
         this.deptId = deptId;
     }
+
+    public Student(int studentId, String fullName, String personalPhoto) {
+        this.studentId = studentId;
+        this.fullName = fullName;
+        this.personalPhoto = personalPhoto;
+    }
     
     public int getStudentId() {
         return studentId;
