@@ -33,6 +33,7 @@ CREATE OR REPLACE VIEW lects_info AS
 CREATE OR REPLACE VIEW students_in_departments AS
     SELECT D.DepartmentName, COUNT(S.StudentID) AS numberOfStudents
     FROM Departments D
-    INNER JOIN Students S
+    LEFT JOIN Students S
         ON D.DepartmentID = S.DepartmentID
-    GROUP BY S.DepartmentID, D.DepartmentName;
+    GROUP BY S.DepartmentID, D.DepartmentName
+    ORDER BY numberOfStudents DESC;
