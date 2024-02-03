@@ -16,14 +16,6 @@ BEGIN
     WHERE LecturerID = v_lecturer_id;
 END;
 
-CREATE OR REPLACE PROCEDURE change_credit_hours(v_course_id NUMBER, v_credit_hours NUMBER)
-IS
-BEGIN
-    UPDATE Courses
-    SET CreditHours = v_credit_hours
-    WHERE CourseID = v_course_id;
-END;
-
 CREATE OR REPLACE PROCEDURE change_course_lecturer(v_course_id NUMBER, v_lecturer_id NUMBER)
 IS
 BEGIN
