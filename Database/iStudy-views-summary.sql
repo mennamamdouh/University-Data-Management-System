@@ -21,7 +21,7 @@ CREATE OR REPLACE VIEW courses_per_semester AS
     GROUP BY Term, Year;
 
 CREATE OR REPLACE VIEW enrolled_students AS
-    SELECT DISTINCT S.StudentID, S.FullName, C.CourseID
+    SELECT DISTINCT S.StudentID, S.PersonalPhoto, S.FullName, C.CourseID
     FROM Students S
     INNER JOIN Enrollments E
         ON S.StudentID = E.StudentID
