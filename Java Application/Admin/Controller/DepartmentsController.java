@@ -5,8 +5,6 @@
  */
 package Controller;
 
-import static Controller.StudentsController.getStudents;
-import static Controller.StudentsController.students;
 import DAO.DBConnection;
 import DAO.DBDeletion;
 import DTO.StudentDept;
@@ -35,7 +33,6 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
