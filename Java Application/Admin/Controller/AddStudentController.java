@@ -5,8 +5,6 @@
  */
 package Controller;
 
-import static Controller.UpdateStudentController.depts;
-import static Controller.UpdateStudentController.studentDeptName;
 import DAO.DBAddition;
 import DAO.DBConnection;
 import DTO.Department;
