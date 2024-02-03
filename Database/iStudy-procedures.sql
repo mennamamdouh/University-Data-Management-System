@@ -16,15 +16,6 @@ BEGIN
     WHERE LecturerID = v_lecturer_id;
 END;
 
-CREATE OR REPLACE PROCEDURE move_lecturer(v_lecturer_id NUMBER, v_office_room VARCHAR2, v_dept_id NUMBER)
-IS
-BEGIN
-    UPDATE Lecturers
-    SET DepartmentID = v_dept_id,
-        OfficeRoom = v_office_room
-    WHERE LecturerID = v_lecturer_id;
-END;
-
 CREATE OR REPLACE PROCEDURE change_credit_hours(v_course_id NUMBER, v_credit_hours NUMBER)
 IS
 BEGIN
