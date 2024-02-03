@@ -5,8 +5,12 @@
  */
 package Controller;
 
+import static Controller.DepartmentsController.depts;
+import static Controller.DepartmentsController.detDepts;
 import DAO.DBConnection;
+import DAO.DBDeletion;
 import DTO.LecturerDept;
+import DTO.StudentDept;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,11 +22,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -33,6 +52,8 @@ public class LecturersController implements Initializable {
     
     static ObservableList<LecturerDept> lecturers;
     private static boolean lectsLoaded = false;
+    private static boolean selected = false;
+    LecturerDept selectedLecturer;
 
     @FXML
     private TableView<LecturerDept> lecturersTable;
@@ -48,6 +69,12 @@ public class LecturersController implements Initializable {
     private TableColumn<LecturerDept, String> deptColumn;
     @FXML
     private TableColumn<LecturerDept, Integer> numOfCourses;
+    @FXML
+    private Button addLecturerButton;
+    @FXML
+    private Button deleteLecturerButton;
+    @FXML
+    private Button updateLecturerButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -84,7 +111,7 @@ public class LecturersController implements Initializable {
         
         if (!lectsLoaded) {
             try {
-                getCourses();
+                getLecturers();
                 lectsLoaded = true;
                 // Set the items after adding the columns
                 lecturersTable.setItems(lecturers);
@@ -92,9 +119,94 @@ public class LecturersController implements Initializable {
                 Logger.getLogger(LecturersController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        addLecturerButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AddLecturer.fxml"));
+                        AnchorPane updateStudentScene = loader.load();
+                        Stage blockingWindow = new Stage();
+                        blockingWindow.initModality(Modality.APPLICATION_MODAL);
+                        blockingWindow.getIcons().add(new Image("/resources/logo.png"));
+                        blockingWindow.setTitle("Add Lecturer");
+                        blockingWindow.setScene(new Scene(updateStudentScene));
+                        blockingWindow.showAndWait();
+                        // Refresh the students list
+                        getLecturers();
+                        lecturersTable.setItems(lecturers);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } 
+        });
+        
+        // Make the table's rows clickable to be able to pick a lecturer to be removed
+        lecturersTable.setRowFactory(new Callback<TableView<LecturerDept>, TableRow<LecturerDept>>() {
+            @Override
+            public TableRow<LecturerDept> call(TableView<LecturerDept> tv) {
+                TableRow<LecturerDept> userRow = new TableRow<>();
+                userRow.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if (event.getClickCount() == 1 && (!userRow.isEmpty())) {
+                            selected = true;
+                            selectedLecturer = userRow.getItem();
+                        }
+                    }
+                });
+                return userRow;
+            }
+        });
+        
+        deleteLecturerButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if(selected){
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setContentText("You're about to delete lecturer " + selectedLecturer.getFullName()+ ". Click OK to continue.");
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.setTitle("Delete Lecturer");
+                        stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
+                        alert.showAndWait().ifPresent(response -> {
+                            if (response == ButtonType.OK){
+                                try {
+                                    // Perform the delete action for the student
+                                    Boolean isDeleted = DBDeletion.deleteLect(selectedLecturer);
+                                    if(isDeleted) {
+                                        // Refresh the lecturers list
+                                        getLecturers();
+                                        lecturersTable.setItems(lecturers);
+                                    } else {
+                                        Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                                        alert2.setContentText("You cannot delete this lecturer as he/she still teaches some courses.");
+                                        Stage stage2 = (Stage) alert2.getDialogPane().getScene().getWindow();
+                                        stage2.setTitle("Delete Lecturer");
+                                        stage2.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
+                                        alert2.showAndWait();
+                                    }
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(StudentsController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        });
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setContentText("Please click on a lecturer to delete.");
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.setTitle("Delete Lecturer");
+                        stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
+                        alert.showAndWait();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } 
+        });
     }
     
-    public static void getCourses() throws SQLException {
+    public static void getLecturers() throws SQLException {
         Connection conn = DBConnection.getConnection();
         PreparedStatement statement = conn.prepareStatement("SELECT * FROM lects_info", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ResultSet resultSet = statement.executeQuery();
@@ -103,12 +215,13 @@ public class LecturersController implements Initializable {
             resultSet.previous();
             while (resultSet.next()) {
                 LecturerDept lects = new LecturerDept(
-                    resultSet.getString(1),
-                    resultSet.getInt(2),
-                    resultSet.getString(3),
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getInt(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getInt(6)
+                    resultSet.getString(6),
+                    resultSet.getInt(7)
                 );
                 lecturersList.add(lects);
             }

@@ -22,6 +22,14 @@ public class Lecturer {
         this.deptId = deptId;
     }
 
+    public Lecturer(String fullName, int salary, String contactEmail, String officeRoom, int deptId) {
+        this.fullName = fullName;
+        this.salary = salary;
+        this.contactEmail = contactEmail;
+        this.officeRoom = officeRoom;
+        this.deptId = deptId;
+    }
+
     public int getLectId() {
         return lectId;
     }

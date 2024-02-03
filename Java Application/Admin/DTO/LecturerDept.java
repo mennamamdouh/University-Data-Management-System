@@ -6,6 +6,7 @@
 package DTO;
 
 public class LecturerDept {
+    private int lectId;
     private String fullName;
     private int salary;
     private String contactEmail;
@@ -13,7 +14,8 @@ public class LecturerDept {
     private String deptName;
     private int numberOfCourses;
 
-    public LecturerDept(String fullName, int salary, String contactEmail, String officeRoom, String deptName, int numberOfCourses) {
+    public LecturerDept(int lectId, String fullName, int salary, String contactEmail, String officeRoom, String deptName, int numberOfCourses) {
+        this.lectId = lectId;
         this.fullName = fullName;
         this.salary = salary;
         this.contactEmail = contactEmail;
@@ -22,6 +24,14 @@ public class LecturerDept {
         this.numberOfCourses = numberOfCourses;
     }
 
+    public int getLectId() {
+        return lectId;
+    }
+
+    public void setLectId(int lectId) {
+        this.lectId = lectId;
+    }
+    
     public String getFullName() {
         return fullName;
     }

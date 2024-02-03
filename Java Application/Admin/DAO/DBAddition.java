@@ -6,6 +6,7 @@
 package DAO;
 
 import DTO.Department;
+import DTO.Lecturer;
 import DTO.Student;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -40,6 +41,27 @@ public class DBAddition {
             statement.close();
             return true;
         } else {
+            statement.close();
+            return false;
+        }
+    }
+    
+    public static boolean addLect(Lecturer newLect) throws SQLException{
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO Lecturers(FullName, Salary, ContactEmail, OfficeRoom, DepartmentID)"
+                                + "VALUES(?, ?, ?, ?, ?)");
+        statement.setString(1, newLect.getFullName());
+        statement.setInt(2, newLect.getSalary());
+        statement.setString(3, newLect.getContactEmail());
+        statement.setString(4, newLect.getOfficeRoom());
+        statement.setInt(5, newLect.getDeptId());
+        int result = statement.executeUpdate();
+        if(result == 1) {
+            System.out.println("Lecturer is added successfully.");
+            statement.close();
+            return true;
+        } else {
+            System.out.println("Lecturer cannot be added.");
             statement.close();
             return false;
         }
