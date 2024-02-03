@@ -30,6 +30,11 @@ public class Lecturer {
         this.deptId = deptId;
     }
 
+    public Lecturer(int lectId, String fullName) {
+        this.lectId = lectId;
+        this.fullName = fullName;
+    }
+
     public int getLectId() {
         return lectId;
     }

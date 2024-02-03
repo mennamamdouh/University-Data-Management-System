@@ -6,18 +6,30 @@
 package DTO;
 
 public class CourseDept {
+    private int courseId;
     private String title;
     private int creditHours;
     private String deptName;
+    private int lectId;
     private String lectName;
     private int numberOfStudents;
 
-    public CourseDept(String title, int creditHours, String deptName, String lectName, int numberOfStudents) {
+    public CourseDept(int courseId, String title, int creditHours, String deptName, int lectId, String lectName, int numberOfStudents) {
+        this.courseId = courseId;
         this.title = title;
         this.creditHours = creditHours;
         this.deptName = deptName;
+        this.lectId = lectId;
         this.lectName = lectName;
         this.numberOfStudents = numberOfStudents;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public String getTitle() {
@@ -44,6 +56,14 @@ public class CourseDept {
         this.deptName = deptName;
     }
 
+    public int getLectId() {
+        return lectId;
+    }
+
+    public void setLectId(int lectId) {
+        this.lectId = lectId;
+    }
+    
     public String getLectName() {
         return lectName;
     }

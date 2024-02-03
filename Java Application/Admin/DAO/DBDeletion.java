@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import DTO.CourseDept;
 import DTO.LecturerDept;
 import DTO.StudentDept;
 import java.sql.Connection;
@@ -39,6 +40,21 @@ public class DBDeletion {
         Connection conn = DBConnection.getConnection();
         PreparedStatement statement = conn.prepareStatement("DELETE FROM Lecturers WHERE LecturerID = ?");
         statement.setInt(1, delLect.getLectId());
+        int result;
+        try {
+            result = statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch(SQLException ex) {
+            statement.close();
+            return false;
+        }
+    }
+    
+    public static boolean deleteCourse(CourseDept delCourse) throws SQLException{
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement("DELETE FROM Courses WHERE CourseID = ?");
+        statement.setInt(1, delCourse.getCourseId());
         int result;
         try {
             result = statement.executeUpdate();

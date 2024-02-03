@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import DTO.Course;
 import DTO.Department;
 import DTO.Lecturer;
 import DTO.Student;
@@ -62,6 +63,24 @@ public class DBAddition {
             return true;
         } else {
             System.out.println("Lecturer cannot be added.");
+            statement.close();
+            return false;
+        }
+    }
+    
+    public static boolean addCourse(Course newCourse) throws SQLException{
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO Courses(Title, CreditHours, DepartmentID, LecturerID)"
+                                + "VALUES(?, ?, ?, ?)");
+        statement.setString(1, newCourse.getTitle());
+        statement.setInt(2, newCourse.getCreditHours());
+        statement.setInt(3, newCourse.getDeptId());
+        statement.setInt(4, newCourse.getLectId());
+        int result = statement.executeUpdate();
+        if(result == 1) {
+            statement.close();
+            return true;
+        } else {
             statement.close();
             return false;
         }

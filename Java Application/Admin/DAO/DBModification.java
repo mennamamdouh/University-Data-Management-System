@@ -27,4 +27,13 @@ public class DBModification {
         boolean result = statement.execute();
         statement.close();
     }
+    
+    public static void updateCourse(int courseId, int lectId) throws SQLException{
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement("DECLARE BEGIN change_course_lecturer(?, ?); END;");
+        statement.setInt(1, courseId);
+        statement.setInt(2, lectId);
+        boolean result = statement.execute();
+        statement.close();
+    }
 }

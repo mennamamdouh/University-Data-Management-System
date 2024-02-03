@@ -20,6 +20,13 @@ public class Course {
         this.lectId = lectId;
     }
 
+    public Course(String title, int creditHours, int deptId, int lectId) {
+        this.title = title;
+        this.creditHours = creditHours;
+        this.deptId = deptId;
+        this.lectId = lectId;
+    }
+
     public int getCourseId() {
         return courseId;
     }
