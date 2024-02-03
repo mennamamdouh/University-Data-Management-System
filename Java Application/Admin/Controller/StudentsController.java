@@ -144,7 +144,7 @@ public class StudentsController implements Initializable {
             }
         }
         
-        // Make the table's rows clickable to be able to visit the friend's profile
+        // Make the table's rows clickable to be able to remove or update a student
         studentsTable.setRowFactory(new Callback<TableView<StudentDept>, TableRow<StudentDept>>() {
             @Override
             public TableRow<StudentDept> call(TableView<StudentDept> tv) {
@@ -159,8 +159,7 @@ public class StudentsController implements Initializable {
                             updateStudent.processStudentDept(selectedStudent);
                         }
                     }
-                });                
-                
+                });
                 return userRow ;
             }
         });
