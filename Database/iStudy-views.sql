@@ -24,7 +24,7 @@ CREATE OR REPLACE VIEW lects_info AS
     FROM Lecturers L
     INNER JOIN Departments D
         ON L.DepartmentID = D.DepartmentID
-    INNER JOIN Courses C
+    LEFT JOIN Courses C
         ON L.LecturerID = C.LecturerID
     GROUP BY L.LecturerID, L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName
     ORDER BY L.FullName;
