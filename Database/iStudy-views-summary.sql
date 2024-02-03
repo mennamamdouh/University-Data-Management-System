@@ -19,3 +19,11 @@ CREATE OR REPLACE VIEW courses_per_semester AS
     SELECT Term, Year, COUNT(StudentID) AS numberOfStudents
     FROM Enrollments
     GROUP BY Term, Year;
+
+CREATE OR REPLACE VIEW enrolled_students AS
+    SELECT DISTINCT S.StudentID, S.FullName, C.CourseID
+    FROM Students S
+    INNER JOIN Enrollments E
+        ON S.StudentID = E.StudentID
+    INNER JOIN Courses C
+        ON E.CourseID = C.CourseID;
