@@ -14,7 +14,7 @@ CREATE OR REPLACE VIEW courses_info AS
         ON C.DepartmentID = D.DepartmentID
     INNER JOIN Lecturers L
         ON C.LecturerID = L.LecturerID
-    INNER JOIN Enrollments E
+    LEFT JOIN Enrollments E
         ON C.CourseID = E.CourseID
     GROUP BY C.CourseID, C.Title, C.CreditHours, D.DepartmentName, L.LecturerID, L.FullName;
 
