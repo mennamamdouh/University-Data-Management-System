@@ -87,7 +87,7 @@ public class UpdateStudentController implements Initializable {
                 } catch (SQLException ex) {
                     Logger.getLogger(UpdateStudentController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } 
+            }
         });
     }
 
