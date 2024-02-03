@@ -29,11 +29,11 @@ CREATE OR REPLACE VIEW lects_info AS
     GROUP BY L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName
     ORDER BY L.FullName;
 
--- View to show the number of students enrolled in each department
-CREATE OR REPLACE VIEW students_in_departments AS
-    SELECT D.DepartmentName, COUNT(S.StudentID) AS numberOfStudents
+-- View to show some information about each department
+CREATE OR REPLACE VIEW departments_info AS
+    SELECT D.DepartmentID, D.DepartmentName, COUNT(S.StudentID) AS numberOfStudents
     FROM Departments D
     LEFT JOIN Students S
         ON D.DepartmentID = S.DepartmentID
-    GROUP BY S.DepartmentID, D.DepartmentName
+    GROUP BY D.DepartmentID, D.DepartmentName
     ORDER BY numberOfStudents DESC;
