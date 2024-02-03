@@ -8,7 +8,7 @@ CREATE OR REPLACE VIEW studentds_info AS
 
 -- View to show information about courses, their departments, and number of students enrolled in each course
 CREATE OR REPLACE VIEW courses_info AS
-    SELECT C.Title, C.CreditHours, D.DepartmentName, L.FullName, COUNT(DISTINCT E.StudentID) AS numberOfStudents
+    SELECT C.CourseID, C.Title, C.CreditHours, D.DepartmentName, L.LecturerID, L.FullName, COUNT(DISTINCT E.StudentID) AS numberOfStudents
     FROM Courses C
     INNER JOIN Departments D
         ON C.DepartmentID = D.DepartmentID
@@ -16,7 +16,7 @@ CREATE OR REPLACE VIEW courses_info AS
         ON C.LecturerID = L.LecturerID
     INNER JOIN Enrollments E
         ON C.CourseID = E.CourseID
-    GROUP BY C.Title, C.CreditHours, D.DepartmentName, L.FullName;
+    GROUP BY C.CourseID, C.Title, C.CreditHours, D.DepartmentName, L.LecturerID, L.FullName;
 
 -- View to show information about lecturers, their departments, and number of courses they teach
 CREATE OR REPLACE VIEW lects_info AS
