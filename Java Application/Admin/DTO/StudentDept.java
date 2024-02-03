@@ -11,6 +11,7 @@ public class StudentDept {
     private String personalPhoto;
     private double cgpa;
     private int totalCreditHours;
+    private int deptId;
     private String deptName;
     private int numberOfStudents;
 
@@ -28,7 +29,8 @@ public class StudentDept {
         this.deptName = deptName;
     }
 
-    public StudentDept(String deptName, int numberOfStudents) {
+    public StudentDept(int deptId, String deptName, int numberOfStudents) {
+        this.deptId = deptId;
         this.deptName = deptName;
         this.numberOfStudents = numberOfStudents;
     }
@@ -71,6 +73,14 @@ public class StudentDept {
 
     public void setTotalCreditHours(int totalCreditHours) {
         this.totalCreditHours = totalCreditHours;
+    }
+
+    public int getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(int deptId) {
+        this.deptId = deptId;
     }
 
     public String getDeptName() {

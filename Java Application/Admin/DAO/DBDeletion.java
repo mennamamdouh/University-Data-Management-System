@@ -18,4 +18,19 @@ public class DBDeletion {
         boolean result = statement.execute();
         statement.close();
     }
+    
+    public static boolean deleteDept(StudentDept delDept) throws SQLException{
+        Connection conn = DBConnection.getConnection();
+        PreparedStatement statement = conn.prepareStatement("DELETE FROM Departments WHERE DepartmentID = ?");
+        statement.setInt(1, delDept.getDeptId());
+        int result;
+        try {
+            result = statement.executeUpdate();
+            statement.close();
+            return true;
+        } catch(SQLException ex) {
+            statement.close();
+            return false;
+        }
+    }
 }
