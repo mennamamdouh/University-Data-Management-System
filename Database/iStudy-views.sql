@@ -20,13 +20,13 @@ CREATE OR REPLACE VIEW courses_info AS
 
 -- View to show information about lecturers, their departments, and number of courses they teach
 CREATE OR REPLACE VIEW lects_info AS
-    SELECT L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName, COUNT(C.CourseID) AS numberOfCourses
+    SELECT L.LecturerID, L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName, COUNT(C.CourseID) AS numberOfCourses
     FROM Lecturers L
     INNER JOIN Departments D
         ON L.DepartmentID = D.DepartmentID
     INNER JOIN Courses C
         ON L.LecturerID = C.LecturerID
-    GROUP BY L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName
+    GROUP BY L.LecturerID, L.FullName, L.Salary, L.ContactEmail, L.OfficeRoom, D.DepartmentName
     ORDER BY L.FullName;
 
 -- View to show some information about each department
