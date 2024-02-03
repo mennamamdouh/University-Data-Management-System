@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="410.0" style="-fx-background-color: #A6A6A6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddStudentController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e0f" height="679.0" layoutX="-10.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="427.0" />
+      <Label layoutX="35.0" layoutY="136.0" prefHeight="37.0" prefWidth="129.0" text="Full Name">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameField" layoutX="35.0" layoutY="179.0" prefHeight="45.0" prefWidth="280.0" promptText="Ex : Mennatallah Mamdouh">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="numberField" layoutX="35.0" layoutY="280.0" prefHeight="45.0" prefWidth="180.0" promptText="Ex: 0123456789">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="addStudentButton" layoutX="162.0" layoutY="579.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="84.0" style="-fx-background-color: #1D1E1D; -fx-background-radius: 50;" text="Add" textFill="#a6a6a6">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="genderBox" layoutX="253.0" layoutY="287.0" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #ffffff;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ChoiceBox>
+      <Button fx:id="choosePhotoButton" layoutX="253.0" layoutY="395.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="Browse">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <DatePicker fx:id="datePicker" layoutX="35.0" layoutY="395.0" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #A6A6A6;" />
+      <ChoiceBox fx:id="deptBox" layoutX="35.0" layoutY="501.0" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: #ffffff;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ChoiceBox>
+      <Text fill="#581845" layoutX="42.0" layoutY="98.0" stroke="WHITE" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="3.0" text="Add Student">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="60.0" />
+         </font>
+      </Text>
+      <Label layoutX="35.0" layoutY="240.0" prefHeight="37.0" prefWidth="129.0" text="Contact Number">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="253.0" layoutY="240.0" prefHeight="37.0" prefWidth="77.0" text="Gender">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="358.0" prefHeight="37.0" prefWidth="129.0" text="Date of Birth">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="253.0" layoutY="358.0" prefHeight="37.0" prefWidth="129.0" text="Personal Photo">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="457.0" prefHeight="37.0" prefWidth="129.0" text="Department">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

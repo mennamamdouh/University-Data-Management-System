@@ -33,6 +33,15 @@ public class Student {
         this.totalCreditHours = totalCreditHours;
         this.deptId = deptId;
     }
+
+    public Student(String fullName, String gender, Date dateOfBirth, String personalPhoto, String contactNumber, int deptId) {
+        this.fullName = fullName;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.personalPhoto = personalPhoto;
+        this.contactNumber = contactNumber;
+        this.deptId = deptId;
+    }
     
     public int getStudentId() {
         return studentId;

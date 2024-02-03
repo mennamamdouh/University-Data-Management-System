@@ -73,15 +73,9 @@ public class StudentsController implements Initializable {
     @FXML
     private Button addStudentButton;
     @FXML
-    private ImageView addImage;
-    @FXML
     private Button deleteStudentButton;
     @FXML
-    private ImageView deleteImage;
-    @FXML
     private Button updateStudentButton;
-    @FXML
-    private ImageView updateImage;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -236,6 +230,27 @@ public class StudentsController implements Initializable {
                         stage.getIcons().add(new Image(this.getClass().getResource("/resources/logo.png").toString()));
                         alert.showAndWait();
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } 
+        });
+        
+        addStudentButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/AddStudent.fxml"));
+                        AnchorPane updateStudentScene = loader.load();
+                        Stage blockingWindow = new Stage();
+                        blockingWindow.initModality(Modality.APPLICATION_MODAL);
+                        blockingWindow.getIcons().add(new Image("/resources/logo.png"));
+                        blockingWindow.setTitle("Add Student");
+                        blockingWindow.setScene(new Scene(updateStudentScene));
+                        blockingWindow.showAndWait();
+                        // Refresh the students list
+                        getStudents();
+                        studentsTable.setItems(students);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
