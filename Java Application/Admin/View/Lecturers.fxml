@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -31,6 +32,9 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <tooltip>
+            <Tooltip text="Add new lecturer" />
+         </tooltip>
       </Button>
       <Button fx:id="deleteLecturerButton" layoutX="378.0" layoutY="550.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #ffffff;">
          <graphic>
@@ -43,6 +47,9 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <tooltip>
+            <Tooltip text="Delete lecturer" />
+         </tooltip>
       </Button>
       <Button fx:id="updateLecturerButton" layoutX="433.0" layoutY="550.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: #ffffff;">
          <graphic>
@@ -55,6 +62,9 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <tooltip>
+            <Tooltip text="Update the salary of the lecturer" />
+         </tooltip>
       </Button>
    </children>
 </AnchorPane>
