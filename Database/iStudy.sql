@@ -144,3 +144,26 @@ BEGIN
 END;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Notifications table creation */
+
+CREATE TABLE Notifications(
+    NotificationID NUMBER(5) NOT NULL,
+    DateTime TIMESTAMP,
+    AnomalyType VARCHAR2(100),
+    Icon VARCHAR2(100),
+    Message VARCHAR2(255),
+
+    CONSTRAINT notifications_pk PRIMARY KEY(NotificationID),
+    CONSTRAINT check_anomaly_type CHECK(AnomalyType IN ('Disk Usage', 'CPU Usage', 'Memory Usage'))
+);
+
+CREATE SEQUENCE notifications_sequence;
+
+CREATE OR REPLACE TRIGGER notifications_on_insert
+    BEFORE INSERT ON Notifications
+    FOR EACH ROW
+BEGIN
+    SELECT notifications_sequence.NEXTVAL INTO :NEW.NotificationID
+    FROM DUAL;
+END;
