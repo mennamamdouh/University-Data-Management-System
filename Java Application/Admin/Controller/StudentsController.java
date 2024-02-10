@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -132,6 +133,9 @@ public class StudentsController implements Initializable {
         studentCHours.setCellValueFactory(
                 new PropertyValueFactory<>("totalCreditHours")
         );
+        
+        Label noContentLabel = new Label("No students registered in the system.");
+        studentsTable.setPlaceholder(noContentLabel);
         
         if (!studentsLoaded) {
             try {

@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -73,6 +74,9 @@ public class DepartmentsController implements Initializable {
         numberOfStudents.setCellValueFactory(
                 new PropertyValueFactory<>("numberOfStudents")
         );
+        
+        Label noContentLabel = new Label("No departments.");
+        deptsTable.setPlaceholder(noContentLabel);
         
         if (!deptsLoaded) {
             try {
