@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportController">
+   <children>
+      <BarChart fx:id="barChart" barGap="2.0" categoryGap="15.0" horizontalGridLinesVisible="false" layoutX="23.0" legendSide="RIGHT" legendVisible="false" prefHeight="287.0" prefWidth="755.0" stylesheets="@../resources/bar-chart.css" title="Bar Chart">
+        <xAxis>
+          <NumberAxis fx:id="numberAxis" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <CategoryAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <PieChart fx:id="departmentsPie" labelLineLength="10.0" labelsVisible="false" layoutX="14.0" layoutY="307.0" prefHeight="287.0" prefWidth="382.0" stylesheets="@../resources/pie-chart.css" title="Departments Pie" />
+      <PieChart fx:id="semestersPie" labelsVisible="false" layoutX="406.0" layoutY="307.0" prefHeight="287.0" prefWidth="382.0" stylesheets="@../resources/pie-chart.css" title="Semesters Pie" />
+   </children>
+</AnchorPane>

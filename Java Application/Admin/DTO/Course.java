@@ -11,6 +11,7 @@ public class Course {
     private int creditHours;
     private int deptId;
     private int lectId;
+    private double averageGPA;
 
     public Course(int courseId, String title, int creditHours, int deptId, int lectId) {
         this.courseId = courseId;
@@ -18,6 +19,11 @@ public class Course {
         this.creditHours = creditHours;
         this.deptId = deptId;
         this.lectId = lectId;
+    }
+
+    public Course(String title, double averageGPA) {
+        this.title = title;
+        this.averageGPA = averageGPA;
     }
 
     public Course(String title, int creditHours, int deptId, int lectId) {
@@ -65,6 +71,14 @@ public class Course {
 
     public void setLectId(int lectId) {
         this.lectId = lectId;
+    }
+
+    public double getAverageGPA() {
+        return averageGPA;
+    }
+
+    public void setAverageGPA(double averageGPA) {
+        this.averageGPA = averageGPA;
     }
     
 }

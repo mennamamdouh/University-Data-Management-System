@@ -27,7 +27,7 @@ public class AdminController implements Initializable {
     @FXML
     private Tab lecturersTab;
     @FXML
-    private Tab summaryTab;
+    private Tab reportTab;
     @FXML
     private Tab alertsTab;
 
@@ -44,7 +44,7 @@ public class AdminController implements Initializable {
         rotateTabHeader(coursesTab);
         rotateTabHeader(deptsTab);
         rotateTabHeader(lecturersTab);
-        rotateTabHeader(summaryTab);
+        rotateTabHeader(reportTab);
         rotateTabHeader(alertsTab);
         
         /* Set the content of each tab */
@@ -53,7 +53,7 @@ public class AdminController implements Initializable {
             coursesTab.setContent(FXMLLoader.load(getClass().getResource("/View/Courses.fxml")));
             deptsTab.setContent(FXMLLoader.load(getClass().getResource("/View/Departments.fxml")));
             lecturersTab.setContent(FXMLLoader.load(getClass().getResource("/View/Lecturers.fxml")));
-            summaryTab.setContent(FXMLLoader.load(getClass().getResource("/View/Summary.fxml")));
+            reportTab.setContent(FXMLLoader.load(getClass().getResource("/View/Report.fxml")));
             alertsTab.setContent(FXMLLoader.load(getClass().getResource("/View/Alerts.fxml")));
         } catch (IOException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
