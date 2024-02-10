@@ -5,24 +5,17 @@
  */
 package Controller;
 
-import static Controller.AddStudentController.depts;
-import static Controller.UpdateCourseController.lects;
 import DAO.DBAddition;
 import DAO.DBConnection;
-import DAO.DBModification;
 import DTO.Course;
 import DTO.Department;
 import DTO.Lecturer;
-import DTO.Student;
-import Main.AddItemController;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -30,7 +23,6 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -115,7 +107,7 @@ public class AddCourseController implements Initializable {
                     stage.close();
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AddItemController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AddCourseController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }    

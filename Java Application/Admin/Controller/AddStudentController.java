@@ -9,7 +9,6 @@ import DAO.DBAddition;
 import DAO.DBConnection;
 import DTO.Department;
 import DTO.Student;
-import Main.AddItemController;
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -112,7 +111,7 @@ public class AddStudentController implements Initializable {
                     stage.close();
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AddItemController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AddStudentController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

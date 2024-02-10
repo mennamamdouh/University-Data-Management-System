@@ -9,7 +9,6 @@ import DAO.DBAddition;
 import DAO.DBConnection;
 import DTO.Department;
 import DTO.Lecturer;
-import Main.AddItemController;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Connection;
@@ -89,7 +88,7 @@ public class AddLecturerController implements Initializable {
                     stage.close();
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AddItemController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AddLecturerController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }    

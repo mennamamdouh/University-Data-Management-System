@@ -7,7 +7,6 @@ package Controller;
 
 import DAO.DBAddition;
 import DTO.Department;
-import Main.AddItemController;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -49,7 +48,7 @@ public class AddDepartmentController implements Initializable {
                     stage.close();
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AddItemController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AddDepartmentController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }    
