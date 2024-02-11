@@ -1,8 +1,23 @@
 # University-Data-Management-System | Database
 
+## Table of Contents ##
+  - [About the database](#about-the-database)
+  - [Database Design](#database-design)
+    - [Entities](#entities)
+    - [Entity Relationship Diagram](#entity-relationship-diagram)
+    - [Relations](#relations)
+    - [Mapping entities to actual tables](#mapping-entities-to-actual-tables)
+  - [SQL \& PL/SQL Implementation](#sql--plsql-implementation)
+    - [Tables and Attributes](#tables-and-attributes)
+    - [PL/SQL Program Units](#plsql-program-units)
+
+---
+
 ## About the database ##
 
 Our database stores information about the university's students, departments, grading system, the courses each department provides, the lecturers that are working on the courses, and and enrollments of the students on the courses. Besides, it provides some functionalities such as calculating each student's CGPA or GPA for a specific term or year.
+
+---
 
 ## Database Design ##
 
