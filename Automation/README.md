@@ -1,13 +1,5 @@
 # University-Data-Management-System
 
-## Table of Contents ##
-- [About the automation process](#about-the-automation-process)
-- [Database Backup](#database-backup)
-- [System Monitoring](#system-monitoring)
-- [Passing variables to the scripts](#passing-variables-to-the-scripts)
-
----
-
 ## About the automation process ##
 The automation process handles the database backup and system monitoring to automatically send alerts to the admin.
 
@@ -112,3 +104,29 @@ DB_PORT=<port_number>
 > Note that each of the variables should be written withing single quotes except the port number.
 
 ---
+
+## Task Scheduling ##
+
+To be able to automate the mentioned tasks, I had to schedule them using `Task Scheduler` which is the scheduling utility built in _Windows_ operating system to schedule the `database backup` task and `crontab` which is the scheduling utility built in _Linux_ operating system to schedule the `system monitoring` task due to the lack of commands build in _Windows_.
+
+- _Snapshots of the database backup task and its log file:_
+    <div align="center">
+    <img src="backup-task.png" alt="Image">
+    <p><em>During the database backup task in Windows</em></p>
+    </div>
+
+    <div align="center">
+    <img src="backup-logs.png" alt="Image">
+    <p><em>Log file of the backup process.</em></p>
+    </div>
+
+- _Snapshots of the system monitoring task and its log file:_
+    <div align="center">
+    <img src="system-monitoring-task.png" alt="Image">
+    <p><em>During the system monitoring task in Linux</em></p>
+    </div>
+
+    <div align="center">
+    <img src="alerts.png" alt="Image">
+    <p><em>The alers stored in the database</em></p>
+    </div>
