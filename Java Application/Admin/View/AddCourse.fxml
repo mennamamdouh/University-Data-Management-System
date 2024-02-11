@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="410.0" style="-fx-background-color: #A6A6A6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddCourseController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e0f" height="679.0" layoutX="-10.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="427.0" />
+      <Label layoutX="39.0" layoutY="160.0" prefHeight="37.0" prefWidth="129.0" text="Title">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleField" layoutX="39.0" layoutY="203.0" prefHeight="45.0" prefWidth="280.0" promptText="Ex : Computer Networks">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="cHoursField" layoutX="39.0" layoutY="304.0" prefHeight="45.0" prefWidth="180.0" promptText="Ex: 3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="addCourseButton" layoutX="162.0" layoutY="579.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="84.0" style="-fx-background-color: #1D1E1D; -fx-background-radius: 50;" text="Add" textFill="#a6a6a6">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ChoiceBox fx:id="deptBox" layoutX="39.0" layoutY="411.0" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: #ffffff;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ChoiceBox>
+      <Text fill="#581845" layoutX="51.0" layoutY="95.0" stroke="WHITE" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="3.0" text="Add Course">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="60.0" />
+         </font>
+      </Text>
+      <Label layoutX="39.0" layoutY="264.0" prefHeight="37.0" prefWidth="129.0" text="Credit Hours">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="374.0" prefHeight="37.0" prefWidth="129.0" text="Department">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="lectBox" layoutX="39.0" layoutY="496.0" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: #ffffff;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ChoiceBox>
+      <Label layoutX="39.0" layoutY="459.0" prefHeight="37.0" prefWidth="129.0" text="Lecturer">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

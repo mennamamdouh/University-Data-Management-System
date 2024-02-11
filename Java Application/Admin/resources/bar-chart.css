@@ -1,0 +1,22 @@
+.chart-bar {
+    -fx-bar-fill:  #581845;
+}
+
+.axis {
+    -fx-tick-label-font-family: "Berlin Sans FB Demi";
+    -fx-tick-label-font-size: 14;
+    -fx-tick-label-background-color: #ddd7db; /* Set tab background color */
+    -fx-tick-label-fill: #581845;
+}
+
+.chart-title {
+    -fx-font-family: "Berlin Sans FB Demi";
+    -fx-font-size: 20;
+    -fx-font-weight: bold; /* Set tab text bold */
+    -fx-background-color:   #ddd7db; /* Set tab background color */
+    -fx-text-fill: #581845; /* Set tab text color */
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #996589;
+}

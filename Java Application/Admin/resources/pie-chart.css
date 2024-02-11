@@ -1,0 +1,35 @@
+.chart-title {
+    -fx-font-family: "Berlin Sans FB Demi";
+    -fx-font-size: 20;
+    -fx-font-weight: bold; /* Set tab text bold */
+    -fx-background-color:   #ddd7db; /* Set tab background color */
+    -fx-text-fill: #581845; /* Set tab text color */
+}
+
+.default-color0.chart-pie{
+    -fx-pie-color: #996589;
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 1;
+    -fx-opacity: 1;
+}
+  
+.default-color1.chart-pie{
+    -fx-pie-color: #74949f;
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 1;
+    -fx-opacity: 1;
+}
+
+.default-color2.chart-pie{
+    -fx-pie-color: #b3a99a;
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 1;
+    -fx-opacity: 1;
+}
+
+.chart-legend {
+    -fx-font-family: "Berlin Sans FB";
+    -fx-font-size: 12;
+    -fx-background-color:   #ddd7db; /* Set tab background color */
+    -fx-text-base-color: #581845; /* Set tab text color */
+}
