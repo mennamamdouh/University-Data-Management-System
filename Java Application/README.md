@@ -39,7 +39,7 @@ There's a button which is responsible of each functionality of these functionali
 
     Pressing on the `Add` button shows a new pane. This pane requires some information about the new student. Then pressing the `Add` button in this pane ensures inserting the student's data in the database.
     <div align="center">
-    <img src="images/add-student.png" alt="Image" width=250>
+    <img src="images/add-student.png" alt="Image" width=350>
     <p><em>Add a new student</em></p>
     </div>
 
@@ -47,12 +47,12 @@ There's a button which is responsible of each functionality of these functionali
 
     Deleting a student requires selecting a student from the list of students. If there's no selected one an alert will be shown.
     <div align="center">
-    <img src="images/delete-student-alert.png" alt="Image" width=500>
+    <img src="images/delete-student-alert.png" alt="Image" width=700>
     </div>
 
     If there's a selected one, it'll be deleted once you press `OK` then the students list will be refreshed.
     <div align="center">
-    <img src="images/delete-student-alert2.png" alt="Image" width=500>
+    <img src="images/delete-student-alert2.png" alt="Image" width=700>
     <p><em>Deleting a student</em></p>
     </div>
 
@@ -61,7 +61,7 @@ There's a button which is responsible of each functionality of these functionali
     This feature also requires selecting a student to change its department, and it fires the same alert if there's no selected one.
     After selecting a student and press to change his/her department, the following pane will be shown. It includes a list of departments that are available in the university, and you're free to choose any of them.
     <div align="center">
-    <img src="images/update-department.png" alt="Image" width=500>
+    <img src="images/update-department.png" alt="Image" width=700>
     </div>
 
     After pressing the `Save` button, the student's department will be updated and the students list will be refreshed as well.
@@ -88,7 +88,7 @@ There's a button which is responsible of each functionality of these functionali
 
     Pressing on the `Add` button shows a new pane. This pane requires some information about the new course. Then pressing the `Add` button in this pane ensures inserting the courses's data in the database.
     <div align="center">
-    <img src="images/add-course.png" alt="Image" width=250>
+    <img src="images/add-course.png" alt="Image" width=350>
     <p><em>Add a new course</em></p>
     </div>
 
@@ -98,14 +98,14 @@ There's a button which is responsible of each functionality of these functionali
     1. Deleting the course after ensuring that there's no students that are enrolled in that course.
     2. Firing an alert which tells the admin that there's option to delete that course as there's still some students studying it.
         <div align="center">
-        <img src="images/delete-course-alert.png" alt="Image" width=500>
+        <img src="images/delete-course-alert.png" alt="Image" width=700>
         </div>
 
 - `Change a course's lecturer`
 
     This feature changes the lecturer of any course you select. It shows a list of the lecturers that are working in the university to select among them.
     <div align="center">
-    <img src="images/update-lecturer.png" alt="Image" width=500>
+    <img src="images/update-lecturer.png" alt="Image" width=700>
     </div>
     After pressing the `Save` button, the courses's lecturer will be updated and the courses list will be refreshed as well.
 
@@ -113,7 +113,7 @@ There's a button which is responsible of each functionality of these functionali
 
     This feature shows the admin all the enrolled students of the selected course.
     <div align="center">
-    <img src="images/enrolled-students.png" alt="Image" width=500>
+    <img src="images/enrolled-students.png" alt="Image" width=700>
     </div>
 
 ---
@@ -159,7 +159,7 @@ There's a button which is responsible of each functionality of these functionali
     After selecting a lecturer, the `Update Salary` pane is shown and requires the salary you want to update. After clicking `Save` button, the data will be updated.
 
     <div align="center">
-    <img src="images/update-salary.png" alt="Image" width=500>
+    <img src="images/update-salary.png" alt="Image" width=700>
     <p><em>Buttons of the Lecturers tab</em></p>
     </div>
 
