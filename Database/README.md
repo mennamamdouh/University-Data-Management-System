@@ -200,15 +200,15 @@ Mainly, `PL/SQL Program Units` are used in this project to facilitate some calcu
 
 - __Procedures__
 
-    There're 4 procedures implemented on the database:
+    _There're 4 procedures implemented on the database:_
     1. `modify_student_dept` &rarr; For changing a student's department.
     2. `update_lecturer_salary` &rarr; For updating a lecturer's salary.
     3. `change_course_lecturer` &rarr; For changing the lecturer of a course.
 
 - __Triggers__
 
-    There're 3 triggers implemented on the database
-    1. `update_course_state` &rarr; This trigger is implemented on `Enrollments` table. It gets executed _before_ the grade of any student gets updated. It checks the new grade, if it's `F` then the state will be 'Failed', and otherwise the state will be 'Passed'.
+    _There're 3 triggers implemented on the database:_
+    1. `update_course_state` &rarr; This trigger is implemented on `Enrollments` table. It gets executed _before_ the grade of any student gets updated. It checks the new grade, if it's `F` then the state will be `Failed`, and otherwise the state will be `Passed`.
     2. `update_cgpa_and_total_hours` &rarr; This trigger is implemented on the `Enrollments` table too but it gets executed _after_ the grade is updated. It mainly updates the total credit hours and CGPA of the student who gets a new grade.
     3. `delete_student` &rarr; This trigger is implemented on the `Students` table. It gets executed _before_ deleting any student from the database as the student already enrolls in some courses. So it cascades the process of deletion from the `Enrollments` table first, then the `Students` table.
 
