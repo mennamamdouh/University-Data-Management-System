@@ -33,6 +33,11 @@ Our database stores information about the university's students, departments, gr
   | <u>Lecturer ID</u> | Full Name | Salary | Contact Email | Office Room |
   | --- | --- | --- | --- | --- |
 
+- __Notifications__
+
+  | <u>Notification ID</u> | DateTime | Anomaly Type | Icon | Message |
+  | --- | --- | --- | --- | --- |
+
 ---
 
 ### <u>Entity Relationship Diagram</u>: ###
@@ -113,32 +118,15 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
 
 1. __Departments__
 
-    <style>
-    .heatMap th {
-        background: #666666;
-    }
-    </style>
-
-    <div class="heatMap">
-   
-    | Field | Type | Null | Key | Default | Extra |
+    | _Field_ | _Type_ | _Null_ | _Key_ | _Default_ | _Extra_ |
     | --- | --- | --- | --- | --- | --- |
     | DepartmentID | `NUMBER(2)` | `NO` | `PK` |  | `Auto Increment` |
     | DepartmentName | `VARCHAR2(100)` |  |  | `NULL` |  |
 
-    </div>
 
 2. __Students__
 
-    <style>
-    .heatMap th {
-        background: #666666;
-    }
-    </style>
-
-    <div class="heatMap">
-   
-    | Field | Type | Null | Key | Default | Extra |
+    | _Field_ | _Type_ | _Null_ | _Key_ | _Default_ | _Extra_ |
     | --- | --- | --- | --- | --- | --- |
     | StudentID | `NUMBER(5)` | `NO` | `PK` |  | `Auto Increment` |
     | FullName | `VARCHAR2(30)` |  |  | `NULL` |  |
@@ -152,19 +140,10 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
     | TotalCreditHours | `NUMBER(3)` |  |  | `NULL` |  |
     | DepartmentID | `NUMBER(2)` | `NO` | `FK` |  |  |
 
-    </div>
 
 3. __Lecturers__
 
-    <style>
-    .heatMap th {
-        background: #666666;
-    }
-    </style>
-
-    <div class="heatMap">
-   
-    | Field | Type | Null | Key | Default | Extra |
+    | _Field_ | _Type_ | _Null_ | _Key_ | _Default_ | _Extra_ |
     | --- | --- | --- | --- | --- | --- |
     | LecturerID | `NUMBER(5)` | `NO` | `PK` |  | `Auto Increment` |
     | FullName | `VARCHAR2(30)` |  |  | `NULL` |  |
@@ -173,19 +152,10 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
     | OfficeRoom | `VARCHAR2(5)` |  |  | `NULL` | `UNIQUE` |
     | DepartmentID | `NUMBER(2)` | `NO` | `FK` |  |  |
 
-    </div>
    
 4. __Courses__
 
-    <style>
-    .heatMap th {
-        background: #666666;
-    }
-    </style>
-
-    <div class="heatMap">
-
-    | Field | Type | Null | Key | Default | Extra |
+    | _Field_ | _Type_ | _Null_ | _Key_ | _Default_ | _Extra_ |
     | --- | --- | --- | --- | --- | --- |
     | CourseID | `NUMBER(5)` | `NO` | `PK` |  | `Auto Increment` |
     | Title | `VARCHAR2(100)` |  |  | `NULL` |  |
@@ -193,36 +163,18 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
     | DepartmentID | `NUMBER(2)` | `NO` | `FK` |  |  |
     | LecturerID | `NUMBER(5)` | `NO` | `FK` |  |  |
 
-    </div>
 
 5. __Grades__
 
-    <style>
-    .heatMap th {
-        background: #666666;
-    }
-    </style>
-
-    <div class="heatMap">
-
-    | Field | Type | Null | Key | Default | Extra |
+    | _Field_ | _Type_ | _Null_ | _Key_ | _Default_ | _Extra_ |
     | --- | --- | --- | --- | --- | --- |
     | Grade | `VARCHAR2(2)` | `NO` | `PK` |  |  |
     | GPA | `NUMBER(2, 1)` |  |  | `NULL` |  |
 
-    </div>
 
 6. __Enrollments__
 
-    <style>
-    .heatMap th {
-        background: #666666;
-    }
-    </style>
-
-    <div class="heatMap">
-
-    | Field | Type | Null | Key | Default | Extra |
+    | _Field_ | _Type_ | _Null_ | _Key_ | _Default_ | _Extra_ |
     | --- | --- | --- | --- | --- | --- |
     | EnrollmentID | `NUMBER(5)` | `NO` | `PK` |  | `Auto Increment` |
     | StudentID | `NUMBER(5)` | `NO` | `FK` |  |  |
@@ -232,27 +184,15 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
     | State | `VARCHAR2(20)` |  |  | `NULL` | `CHECK(’In progress’, ‘Passed’, ‘Failed’)` |
     | Grade | `VARCHAR2(2)` |  | `FK` | `NULL` |  |
 
-    </div>
-
 7. __Notifications__
 
-    <style>
-    .heatMap th {
-        background: #666666;
-    }
-    </style>
-
-    <div class="heatMap">
-
-    | Field | Type | Null | Key | Default | Extra |
+    | _Field_ | _Type_ | _Null_ | _Key_ | _Default_ | _Extra_ |
     | --- | --- | --- | --- | --- | --- |
     | NotificationID | `NUMBER(5)` | `NO` | `PK` |  | `Auto Increment` |
     | DateTime | `TIMESTAMP` |  |  | `NULL` |  |
     | AnomalyType | `VARCHAR2(100)` |  |  | `NULL` | `CHECK(’Disk Usage’, ‘CPU Usage’, ‘Memory Usage’)` |
     | Icon | `VARCHAR2(100)` |  |  | `NULL` |  |
     | Message | `VARCHAR2(255)` |  |  | `NULL` |  |
-
-    </div>
 
 ---
 
