@@ -1,5 +1,18 @@
 # University-Data-Management-System
 
+## Table of Contents ##
+  - [About the application](#about-the-application)
+  - [User Interface](#user-interface)
+    - [Students Tab](#students-tab)
+    - [Courses Tab](#courses-tab)
+    - [Departments Tab](#departments-tab)
+    - [Lecturers Tab](#lecturers-tab)
+    - [Report Tab](#report-tab)
+    - [Alerts Tab](#alerts-tab)
+  - [Logic behind the application](#logic-behind-the-application)
+
+---
+
 ## About the application ##
 
 `Dashboard` application is a `Java` based application built with the `OOP` principles. It facilitates some tasks to the admins and IT members of the university to perform through a simple GUI.
@@ -107,6 +120,7 @@ There's a button which is responsible of each functionality of these functionali
     <div align="center">
     <img src="images/update-lecturer.png" alt="Image" width=700>
     </div>
+    
     After pressing the `Save` button, the courses's lecturer will be updated and the courses list will be refreshed as well.
 
 - `View enrolled students`
@@ -160,7 +174,6 @@ There's a button which is responsible of each functionality of these functionali
 
     <div align="center">
     <img src="images/update-salary.png" alt="Image" width=700>
-    <p><em>Buttons of the Lecturers tab</em></p>
     </div>
 
 ---
