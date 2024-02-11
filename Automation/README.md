@@ -1,5 +1,13 @@
 # University-Data-Management-System
 
+## Table of Contents ##
+- [About the automation process](#about-the-automation-process)
+- [Database Backup](#database-backup)
+- [System Monitoring](#system-monitoring)
+- [Passing variables to the scripts](#passing-variables-to-the-scripts)
+
+---
+
 ## About the automation process ##
 The automation process handles the database backup and system monitoring to automatically send alerts to the admin.
 
