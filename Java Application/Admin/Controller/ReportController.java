@@ -127,13 +127,7 @@ public class ReportController implements Initializable {
     
     public static void getAverageGPA() throws SQLException {
         Connection conn = DBConnection.getConnection();
-        PreparedStatement statement = conn.prepareStatement("SELECT C.Title, AVG(G.GPA)\n" +
-                                                            "FROM Enrollments E\n" +
-                                                            "INNER JOIN Grades G\n" +
-                                                            "    ON E.Grade = G.Grade\n" +
-                                                            "INNER JOIN Courses C\n" +
-                                                            "    ON E.CourseID = C.CourseID\n" +
-                                                            "GROUP BY C.Title", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        PreparedStatement statement = conn.prepareStatement("SELECT * FROM average_gpa_per_course", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ResultSet resultSet = statement.executeQuery();
         ArrayList<Course> coursesList = new ArrayList<Course>();
         if (resultSet.next()) {
@@ -152,12 +146,7 @@ public class ReportController implements Initializable {
     
     public static void getDepartmentsCourses() throws SQLException {
         Connection conn = DBConnection.getConnection();
-        PreparedStatement statement = conn.prepareStatement("SELECT D.DepartmentName, COUNT(C.CourseID)\n" +
-                                                            "FROM Departments D\n" +
-                                                            "INNER JOIN Courses C\n" +
-                                                            "    ON D.DepartmentID = C.DepartmentID\n" +
-                                                            "GROUP BY D.DepartmentName\n" +
-                                                            "ORDER BY COUNT(C.CourseID) DESC", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        PreparedStatement statement = conn.prepareStatement("SELECT * FROM courses_in_departments", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ResultSet resultSet = statement.executeQuery();
         ArrayList<Department> deptsInfo = new ArrayList<Department>();
         if (resultSet.next()) {
@@ -176,12 +165,7 @@ public class ReportController implements Initializable {
     
     public static void getSemestersStudents() throws SQLException {
         Connection conn = DBConnection.getConnection();
-        PreparedStatement statement = conn.prepareStatement("SELECT E.Term, COUNT(S.StudentID)\n" +
-                                                            "FROM Enrollments E\n" +
-                                                            "INNER JOIN Students S\n" +
-                                                            "    ON E.StudentID = S.StudentID\n" +
-                                                            "GROUP BY E.Term\n" +
-                                                            "ORDER BY COUNT(S.StudentID) DESC", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        PreparedStatement statement = conn.prepareStatement("SELECT * FROM students_per_semester", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ResultSet resultSet = statement.executeQuery();
         ArrayList<Semester> semestersInfo = new ArrayList<Semester>();
         if (resultSet.next()) {
