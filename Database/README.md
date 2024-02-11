@@ -110,9 +110,7 @@ Our database stores information about the university's students, departments, gr
 
 ## SQL & PL/SQL Implementation ##
 
-The database with its tables that are described above are implemented on __Oracle DBMS__. Tables that their `PK` is a `NUMBER` data type has a `sequence-trigger pair` to be auto-incremental. In the following section I'll describe the order of implementation of the tables, the data types of each table's fields, and the constraints forced on each table.
-
-Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will be explained in detail.
+The database with its tables that are described above are implemented on __Oracle DBMS__. Tables that their `PK` is a `NUMBER` data type has a `sequence-trigger pair` to be auto-incremental. In the following section I'll describe the order of implementation of the tables, the data types of each table's fields, and the constraints forced on each table. Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will be explained in detail.
 
 ### <u>Tables and Attributes</u>: ###
 
@@ -132,7 +130,7 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
     | FullName | `VARCHAR2(30)` |  |  | `NULL` |  |
     | Email | `VARCHAR2(50)` |  |  | `NULL` | `UNIQUE` |
     | Password | `VARCHAR2(20)` |  |  | `NULL` |  |
-    | Gender | `VARCHAR2(10)` |  |  | `NULL` | `CHECK(’Female’, ‘Male’)` |
+    | Gender | `VARCHAR2(10)` |  |  | `NULL` | `CHECK(‘Female’, ‘Male’)` |
     | DoB | `DATE` |  |  | `NULL` |  |
     | PersonalPhoto | `VARCHAR2(150)` |  |  | `NULL` |  |
     | ContactNumber | `VARCHAR2(15)` |  |  | `NULL` |  |
@@ -179,9 +177,9 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
     | EnrollmentID | `NUMBER(5)` | `NO` | `PK` |  | `Auto Increment` |
     | StudentID | `NUMBER(5)` | `NO` | `FK` |  |  |
     | CourseID | `NUMBER(5)` | `NO` | `FK` |  |  |
-    | Term | `VARCHAR2(10)` |  |  | `NULL` | `CHECK(’Spring’, ‘Autumn’, ‘Summer’)` |
+    | Term | `VARCHAR2(10)` |  |  | `NULL` | `CHECK(‘Spring’, ‘Autumn’, ‘Summer’)` |
     | Year | `DATE` |  |  | `NULL` |  |
-    | State | `VARCHAR2(20)` |  |  | `NULL` | `CHECK(’In progress’, ‘Passed’, ‘Failed’)` |
+    | State | `VARCHAR2(20)` |  |  | `NULL` | `CHECK(‘In progress’, ‘Passed’, ‘Failed’)` |
     | Grade | `VARCHAR2(2)` |  | `FK` | `NULL` |  |
 
 7. __Notifications__
@@ -190,7 +188,7 @@ Then, the `PL/SQL Program Units` of _procedures_, _triggers_, and _views_ will b
     | --- | --- | --- | --- | --- | --- |
     | NotificationID | `NUMBER(5)` | `NO` | `PK` |  | `Auto Increment` |
     | DateTime | `TIMESTAMP` |  |  | `NULL` |  |
-    | AnomalyType | `VARCHAR2(100)` |  |  | `NULL` | `CHECK(’Disk Usage’, ‘CPU Usage’, ‘Memory Usage’)` |
+    | AnomalyType | `VARCHAR2(100)` |  |  | `NULL` | `CHECK(‘Disk Usage’, ‘CPU Usage’, ‘Memory Usage’)` |
     | Icon | `VARCHAR2(100)` |  |  | `NULL` |  |
     | Message | `VARCHAR2(255)` |  |  | `NULL` |  |
 
