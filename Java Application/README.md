@@ -1,15 +1,19 @@
 # University-Data-Management-System
 
 ## Table of Contents ##
+- [University-Data-Management-System](#university-data-management-system)
+  - [Table of Contents](#table-of-contents)
   - [About the application](#about-the-application)
-  - [User Interface](#user-interface)
+  - [GUI Overview](#gui-overview)
+  - [GUI in Depth](#gui-in-depth)
     - [Students Tab](#students-tab)
     - [Courses Tab](#courses-tab)
     - [Departments Tab](#departments-tab)
     - [Lecturers Tab](#lecturers-tab)
     - [Report Tab](#report-tab)
     - [Alerts Tab](#alerts-tab)
-  - [Logic behind the application](#logic-behind-the-application)
+  - [Overview of the Logic behind the application](#overview-of-the-logic-behind-the-application)
+  - [Logic in Depth](#logic-in-depth)
 
 ---
 
@@ -19,18 +23,64 @@
 
 ---
 
-## User Interface ##
+## GUI Overview ##
 
 The application mainly consists of a tab pane which is divided into 6 tabs.
 
-1. Students
-2. Courses
-3. Departments
-4. Lecturers
-5. Report
-6. Alerts
+<div align="center">
+  <img src="images/gui-overview.png" alt="Image" width=700>
+  <p><em>Java Application GUI Overview</em></p>
+</div>
 
-In the following section, you'll know what data each tab of the mentioned tabs provides, what functionalities it has, and how to use each of its functionalities easily.
+Each tab shows some information about a specific entity, and has some functionalities to perform.
+
+1. __Students Tab__
+   
+    <div align="center">
+      <img src="images/students-overview.png" alt="Image" width=600>
+      <p><em>Students Tab Overview</em></p>
+    </div>
+
+2. __Courses Tab__
+   
+    <div align="center">
+      <img src="images/courses-overview.png" alt="Image" width=600>
+      <p><em>Courses Tab Overview</em></p>
+    </div>
+
+3. __Departments Tab__
+   
+    <div align="center">
+      <img src="images/departments-overview.png" alt="Image" width=600>
+      <p><em>Departments Tab Overview</em></p>
+    </div>
+
+4. __Lecturers Tab__
+   
+    <div align="center">
+      <img src="images/lecturers-overview.png" alt="Image" width=600>
+      <p><em>Lecturers Tab Overview</em></p>
+    </div>
+
+5. __Report Tab__
+   
+    <div align="center">
+      <img src="images/report-overview.png" alt="Image" width=600>
+      <p><em>Report Tab Overview</em></p>
+    </div>
+
+6. __Alerts Tab__
+   
+    <div align="center">
+      <img src="images/alerts-overview.png" alt="Image" width=600>
+      <p><em>Alerts Tab Overview</em></p>
+    </div>
+
+---
+
+## GUI in Depth ##
+
+As mentioned, each tab shows some information about a specific entity, and has some functionalities to perform. So, in the following sections, you'll know more details about each of them and how their functionalities work.
 
 ### Students Tab ###
 
@@ -200,7 +250,16 @@ There's a button which is responsible of each functionality of these functionali
 
 ---
 
-## Logic behind the application ##
+## Overview of the Logic behind the application ##
+
+<div align="center">
+    <img src="images/main-structure.png" alt="Image" width=700>
+    <p><em>Java Application Main Structure</em></p>
+</div>
+
+---
+
+## Logic in Depth ##
 
 _The application mainly follows 4 design patterns to be built in that way:_
 
