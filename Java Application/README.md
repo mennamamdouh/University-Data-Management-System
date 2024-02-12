@@ -1,19 +1,17 @@
 # University-Data-Management-System
 
 ## Table of Contents ##
-- [University-Data-Management-System](#university-data-management-system)
-  - [Table of Contents](#table-of-contents)
-  - [About the application](#about-the-application)
-  - [GUI Overview](#gui-overview)
-  - [GUI in Depth](#gui-in-depth)
-    - [Students Tab](#students-tab)
-    - [Courses Tab](#courses-tab)
-    - [Departments Tab](#departments-tab)
-    - [Lecturers Tab](#lecturers-tab)
-    - [Report Tab](#report-tab)
-    - [Alerts Tab](#alerts-tab)
-  - [Overview of the Logic behind the application](#overview-of-the-logic-behind-the-application)
-  - [Logic in Depth](#logic-in-depth)
+- [About the application](#about-the-application)
+- [GUI Overview](#gui-overview)
+- [GUI in Depth](#gui-in-depth)
+  - [Students Tab](#students-tab)
+  - [Courses Tab](#courses-tab)
+  - [Departments Tab](#departments-tab)
+  - [Lecturers Tab](#lecturers-tab)
+  - [Report Tab](#report-tab)
+  - [Alerts Tab](#alerts-tab)
+- [Logic Overview](#logic-overview)
+- [Logic in Depth](#logic-in-depth)
 
 ---
 
@@ -250,7 +248,7 @@ There's a button which is responsible of each functionality of these functionali
 
 ---
 
-## Overview of the Logic behind the application ##
+## Logic Overview ##
 
 <div align="center">
     <img src="images/main-structure.png" alt="Image" width=700>
