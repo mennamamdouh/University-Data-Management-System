@@ -11,7 +11,7 @@ _The data management system is divided into 3 main sub-systems:_
 3. `Java Application Development`
 
 <div align="center">
-  <img src="system-overview.png" alt="Image">
+  <img src="images/system-overview.png" alt="Image">
   <p><em>University Data Management System Overview</em></p>
 </div>
 
@@ -22,6 +22,11 @@ _The database sub-system includes 3 main tasks:_
 2. Implementing the database on __Oracle DBMS__.
 3. Writing some PL/SQL scripts to facilitate the process of showing, modifying, or deleting data from the database.
 
+<div align="center">
+  <img src="images/database-overview.png" alt="Image">
+  <p><em>Database Sub-system Overview</em></p>
+</div>
+
 ---
 
 ### <u>Automation</u>: ###
@@ -30,6 +35,11 @@ The automation sub-system is responsible of automating some tasks related to the
 
 1. __Database Backup__ &rarr; Backing up the database's metadata and data regularly.
 2. __System Monitoring__ &rarr; Monitoring the system resources such as _CPU, _Disk Usage_, and _Memory Consumption_. Also, sending alerts to the admin.
+
+<div align="center">
+  <img src="images/automation-overview.png" alt="Image" width=800>
+  <p><em>Automation Sub-system Overview</em></p>
+</div>
 
 ---
 
@@ -40,12 +50,22 @@ _The java application development sub-system includes 3 main tasks:_
 2. Facilitating the process of adding, deleting, or modifying any piece of data.
 3. Generating a report to show some statistical information to the admin, and gathering insights from it.
 
+<div align="center">
+  <img src="images/gui-overview.png" alt="Image" width=800>
+  <p><em>Java Sub-system | GUI Overview</em></p>
+</div>
+
+<div align="center">
+  <img src="images/main-structure.png" alt="Image" width=800>
+  <p><em>Java Sub-system | Main Structure Overview</em></p>
+</div>
+
 ---
 
 ## System Integration ##
 
 <div align="center">
-  <img src="system-integration.png" alt="Image">
+  <img src="images/system-integration.png" alt="Image">
   <p><em>University Data Management System Integration</em></p>
 </div>
 
